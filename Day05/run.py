@@ -37,7 +37,7 @@ for stack in containerstacks:
     print (stack)
 
 for move in MoveLines:
-#    print (move)
+    print (move)
     parts = move.strip().split (' ')
     rep = int(parts[1])
     start = int (parts[3]) -1
@@ -51,8 +51,12 @@ for move in MoveLines:
 
     print("before end" )
     print(containerstacks[end])
-    containerstacks[end].append(containerstacks[start][:-1*rep])
-        
+    tomove = containerstacks[start][-1*rep:]
+    print('looking to move')
+    print(tomove)
+    for  i in tomove:
+       containerstacks[end].append(i)
+       containerstacks[start].pop()   
     
     print("after start")
     print(containerstacks[start])
